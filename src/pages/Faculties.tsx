@@ -55,7 +55,7 @@ const Faculties = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {facultyData.map((f, i) => (
               <div key={i} className="scroll-reveal flex flex-col bg-card rounded-lg shadow-md overflow-hidden">
-                <div className="aspect-[3/4] bg-secondary flex items-center justify-center overflow-hidden">
+                <div className="aspect-square bg-secondary flex items-center justify-center overflow-hidden">
                   {f.image ? (
                     <img src={f.image} alt={f.name} className="w-full h-full object-cover" />
                   ) : (
