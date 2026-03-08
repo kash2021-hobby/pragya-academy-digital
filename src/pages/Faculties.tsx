@@ -38,7 +38,11 @@ const Faculties = () => {
             {facultyData.map((f, i) => (
               <div key={i} className="scroll-reveal group bg-card rounded-xl shadow-md overflow-hidden card-hover">
                 <div className="aspect-[3/4] bg-secondary flex items-center justify-center relative overflow-hidden">
-                  <User size={64} className="text-muted-foreground/30" />
+                  {f.image ? (
+                    <img src={f.image} alt={f.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <User size={64} className="text-muted-foreground/30" />
+                  )}
                   <div className="absolute inset-0 bg-navy/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4">
                     <div className="text-center text-primary-foreground">
                       <p className="text-sm font-medium">Experienced & Dedicated</p>
