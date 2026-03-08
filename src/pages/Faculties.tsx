@@ -2,9 +2,10 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import PageHero from '@/components/PageHero';
 import aboutHero from '@/assets/about-hero.jpg';
 import { User } from 'lucide-react';
+import mukutKalitaImg from '@/assets/mukut-kalita.webp';
 
 const facultyData = [
-  { name: 'Dr. Mukut Kalita', subject: 'Chemistry' },
+  { name: 'Dr. Mukut Kalita', subject: 'Chemistry', image: mukutKalitaImg },
   { name: 'Sahjahan Ali', subject: 'Chemistry' },
   { name: 'Imran Choudhury', subject: 'Physics' },
   { name: 'Bhaskar Deep Kashyap', subject: 'Assamese' },
