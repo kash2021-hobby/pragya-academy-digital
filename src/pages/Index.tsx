@@ -121,24 +121,22 @@ const Index = () => {
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Our Key Strengths</h2>
           </div>
           
-          {/* Desktop: Grid layout */}
-          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {whyChoose.map((item, i) => (
-              <div key={i} className="scroll-reveal bg-card rounded-xl shadow-md p-6 text-center card-hover">
-                <div className="w-16 h-16 rounded-full bg-orange/10 flex items-center justify-center mx-auto mb-4">
-                  <item.icon size={28} className="text-orange" />
-                </div>
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile: Horizontal scroll with animation */}
-          <div className="md:hidden relative">
-            <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+          {/* Animated horizontal scrolling cards */}
+          <div className="relative">
+            <div className="flex gap-6 animate-scroll-cards">
+              {/* First set of cards */}
               {whyChoose.map((item, i) => (
-                <div key={i} className="flex-shrink-0 w-72 bg-card rounded-xl shadow-md p-6 text-center snap-start">
+                <div key={`first-${i}`} className="flex-shrink-0 w-72 bg-card rounded-xl shadow-md p-6 text-center card-hover">
+                  <div className="w-16 h-16 rounded-full bg-orange/10 flex items-center justify-center mx-auto mb-4">
+                    <item.icon size={28} className="text-orange" />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {whyChoose.map((item, i) => (
+                <div key={`second-${i}`} className="flex-shrink-0 w-72 bg-card rounded-xl shadow-md p-6 text-center card-hover">
                   <div className="w-16 h-16 rounded-full bg-orange/10 flex items-center justify-center mx-auto mb-4">
                     <item.icon size={28} className="text-orange" />
                   </div>

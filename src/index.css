@@ -137,8 +137,8 @@
     display: none;
   }
   
-  /* Horizontal scroll animation - subtle and slow */
-  @keyframes scroll-horizontal {
+  /* Smooth horizontal scroll animation for cards - right to left */
+  @keyframes scroll-cards {
     0% {
       transform: translateX(0);
     }
@@ -147,11 +147,11 @@
     }
   }
   
-  .animate-scroll-horizontal {
-    animation: scroll-horizontal 30s linear infinite;
+  .animate-scroll-cards {
+    animation: scroll-cards 40s linear infinite;
   }
   
-  .animate-scroll-horizontal:hover {
+  .animate-scroll-cards:hover {
     animation-play-state: paused;
   }
 }
