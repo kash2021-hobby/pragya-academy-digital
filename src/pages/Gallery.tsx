@@ -3,20 +3,20 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import PageHero from '@/components/PageHero';
 import aboutHero from '@/assets/about-hero.jpg';
-import campus1 from '@/assets/campus-1.jpg';
-import campus2 from '@/assets/campus-2.jpg';
-import campus3 from '@/assets/campus-3.jpg';
-import heroCampus from '@/assets/hero-campus.jpg';
+import gallery1 from '@/assets/gallery-1.webp';
+import gallery2 from '@/assets/gallery-2.webp';
+import gallery3 from '@/assets/gallery-3.webp';
+import gallery4 from '@/assets/gallery-4.webp';
+import gallery5 from '@/assets/gallery-5.webp';
+import gallery6 from '@/assets/gallery-6.webp';
 
 const images = [
-  { src: heroCampus },
-  { src: campus1 },
-  { src: campus2 },
-  { src: campus3 },
-  { src: heroCampus },
-  { src: campus1 },
-  { src: campus3 },
-  { src: campus2 },
+  { src: gallery1 },
+  { src: gallery2 },
+  { src: gallery3 },
+  { src: gallery4 },
+  { src: gallery5 },
+  { src: gallery6 },
 ];
 
 const Gallery = () => {
