@@ -301,42 +301,42 @@ const Gallery = () => {
       {/* Enhanced Lightbox with Swipe Navigation */}
       {lightboxIndex !== null && (
         <div 
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          {/* Close button */}
+          {/* Close button - Enhanced visibility */}
           <button 
-            className="absolute top-4 right-4 z-10 text-white hover:text-orange transition-colors p-2" 
+            className="absolute top-4 right-4 z-[60] text-white hover:text-orange transition-all duration-300 p-3 bg-black/70 rounded-full hover:bg-black/90 hover:scale-110 shadow-lg" 
             onClick={closeLightbox}
             aria-label="Close lightbox"
           >
-            <X size={32} />
+            <X size={36} strokeWidth={2.5} />
           </button>
 
           {/* Previous button */}
           <button 
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-white hover:text-orange transition-colors p-2 bg-black/50 rounded-full hover:bg-black/70"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-[60] text-white hover:text-orange transition-all duration-300 p-2 bg-black/70 rounded-full hover:bg-black/90 hover:scale-110 shadow-lg"
             onClick={(e) => {
               e.stopPropagation();
               goToPrevious();
             }}
             aria-label="Previous image"
           >
-            <ChevronLeft size={40} />
+            <ChevronLeft size={40} strokeWidth={2.5} />
           </button>
 
           {/* Next button */}
           <button 
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white hover:text-orange transition-colors p-2 bg-black/50 rounded-full hover:bg-black/70"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-[60] text-white hover:text-orange transition-all duration-300 p-2 bg-black/70 rounded-full hover:bg-black/90 hover:scale-110 shadow-lg"
             onClick={(e) => {
               e.stopPropagation();
               goToNext();
             }}
             aria-label="Next image"
           >
-            <ChevronRight size={40} />
+            <ChevronRight size={40} strokeWidth={2.5} />
           </button>
 
           {/* Image */}
