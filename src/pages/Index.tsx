@@ -58,7 +58,11 @@ const Index = () => {
       <section className="relative z-10 -mt-16 md:-mt-20 container-main px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((s, i) => (
-            <div key={i} className="bg-card rounded-xl shadow-lg p-6 card-hover" style={{ animationDelay: `${i * 0.1}s` }}>
+            <div 
+              key={i} 
+              className="scroll-reveal bg-card rounded-xl shadow-lg p-6 card-hover" 
+              style={{ transitionDelay: `${i * 150}ms` }}
+            >
               <div className="w-12 h-12 rounded-lg bg-orange/10 flex items-center justify-center mb-4">
                 <s.icon size={24} className="text-orange" />
               </div>
