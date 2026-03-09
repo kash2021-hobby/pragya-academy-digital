@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Users, Monitor, Laptop, Shield, BookOpen, GraduationCap, FlaskConical, Trophy, UserCheck, GitBranch, Mail } from 'lucide-react';
+import { Users, Monitor, Laptop, Shield, BookOpen, GraduationCap, FlaskConical, Trophy, UserCheck, GitBranch, Mail, Camera, Home, Heart, Presentation } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useCountUp } from '@/hooks/useCountUp';
 import heroCampus from '@/assets/hero-campus.jpg';
@@ -18,6 +18,10 @@ const whyChoose = [
   { icon: BookOpen, title: 'Interactive Classes', desc: 'Engaging, effective, and concept-oriented methods.' },
   { icon: GraduationCap, title: 'Experienced Faculty', desc: 'Deep subject knowledge and innovative techniques.' },
   { icon: FlaskConical, title: 'Modern Labs', desc: 'Well-equipped labs for hands-on practical exposure.' },
+  { icon: Camera, title: 'CCTV Surveillance', desc: 'Complete campus security with 24/7 monitoring.' },
+  { icon: Home, title: 'Separate Hostels', desc: 'Safe and comfortable hostels for boys and girls.' },
+  { icon: Heart, title: 'Special Care for Students', desc: 'Individual attention and personalized support.' },
+  { icon: Presentation, title: 'Smart Digital Classroom', desc: 'Modern technology-enabled interactive learning spaces.' },
 ];
 
 const Index = () => {
@@ -110,22 +114,39 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section-padding bg-soft">
+      <section className="section-padding bg-soft overflow-hidden">
         <div className="container-main">
           <div className="text-center mb-12 scroll-reveal">
             <p className="text-orange font-semibold text-sm uppercase tracking-wider mb-2">Why Choose Us</p>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Our Key Strengths</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          
+          {/* Desktop: Grid layout */}
+          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-4 gap-6">
             {whyChoose.map((item, i) => (
-              <div key={i} className="scroll-reveal bg-card rounded-xl shadow-md p-8 text-center card-hover">
-                <div className="w-16 h-16 rounded-full bg-orange/10 flex items-center justify-center mx-auto mb-5">
+              <div key={i} className="scroll-reveal bg-card rounded-xl shadow-md p-6 text-center card-hover">
+                <div className="w-16 h-16 rounded-full bg-orange/10 flex items-center justify-center mx-auto mb-4">
                   <item.icon size={28} className="text-orange" />
                 </div>
-                <h3 className="font-heading text-xl font-semibold text-foreground mb-3">{item.title}</h3>
+                <h3 className="font-heading text-lg font-semibold text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
             ))}
+          </div>
+
+          {/* Mobile: Horizontal scroll with animation */}
+          <div className="md:hidden relative">
+            <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+              {whyChoose.map((item, i) => (
+                <div key={i} className="flex-shrink-0 w-72 bg-card rounded-xl shadow-md p-6 text-center snap-start">
+                  <div className="w-16 h-16 rounded-full bg-orange/10 flex items-center justify-center mx-auto mb-4">
+                    <item.icon size={28} className="text-orange" />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
