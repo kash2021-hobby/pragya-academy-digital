@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Users, Monitor, Laptop, Shield, BookOpen, GraduationCap, FlaskConical, Trophy, UserCheck, GitBranch, Mail, Camera, Home, Heart, Presentation } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useCountUp } from '@/hooks/useCountUp';
-import heroCampus from '@/assets/hero-campus.jpg';
+import heroCampus from '@/assets/hero-campus.webp';
 import campus1 from '@/assets/gallery-1.webp';
 import campus2 from '@/assets/gallery-2.webp';
 import campus3 from '@/assets/gallery-10.webp';
