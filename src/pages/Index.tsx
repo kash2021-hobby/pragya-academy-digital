@@ -296,19 +296,25 @@ const Index = () => {
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Our Key Strengths</h2>
           </div>
           
-          {/* Responsive Cards Grid */}
+          {/* Responsive Cards Grid with Alternating Colors */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyChoose.map((item, i) => (
               <div 
                 key={i} 
-                className="scroll-reveal bg-card rounded-xl shadow-md p-6 text-center card-hover"
-                style={{ transitionDelay: `${i * 100}ms` }}
+                className="scroll-reveal rounded-xl shadow-lg p-6 text-center transition-all duration-300 hover:shadow-2xl"
+                style={{ 
+                  transitionDelay: `${i * 100}ms`,
+                  backgroundColor: i % 2 === 0 ? '#e8eef5' : '#fef3ed'
+                }}
               >
-                <div className="w-16 h-16 rounded-full bg-orange/10 flex items-center justify-center mx-auto mb-4">
+                <div 
+                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                  style={{ backgroundColor: '#fef3ed' }}
+                >
                   <item.icon size={28} className="text-orange" />
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.desc}</p>
+                <h3 className="font-heading text-lg font-semibold mb-2" style={{ color: '#1e3a5f' }}>{item.title}</h3>
+                <p className="text-sm" style={{ color: '#4a5568' }}>{item.desc}</p>
               </div>
             ))}
           </div>
