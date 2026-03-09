@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Users, Monitor, Laptop, Shield, BookOpen, GraduationCap, FlaskConical, Trophy, UserCheck, GitBranch, Mail, Camera, Home, Heart, Presentation } from 'lucide-react';
+import { Users, Monitor, Laptop, Shield, BookOpen, GraduationCap, FlaskConical, Trophy, UserCheck, GitBranch, Mail, Camera, Home, Heart, Presentation, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useCountUp } from '@/hooks/useCountUp';
 import heroCampus from '@/assets/gallery-59.webp';
@@ -10,6 +10,13 @@ import campus3 from '@/assets/gallery-10.webp';
 import topAchievers from '@/assets/top-achievers.webp';
 import results2025 from '@/assets/results-2025.webp';
 import results2024 from '@/assets/results-2024.webp';
+// Gallery images
+import gallery1 from '@/assets/gallery-1.webp';
+import gallery2 from '@/assets/gallery-2.webp';
+import gallery5 from '@/assets/gallery-5.webp';
+import gallery7 from '@/assets/gallery-7.webp';
+import gallery8 from '@/assets/gallery-8.webp';
+import gallery9 from '@/assets/gallery-9.webp';
 
 const heroImages = [heroCampus, campus1, campus3];
 
@@ -317,6 +324,48 @@ const Index = () => {
                 <p className="text-sm" style={{ color: '#4a5568' }}>{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="section-padding">
+        <div className="container-main">
+          <div className="text-center mb-12 scroll-reveal">
+            <p className="text-orange font-semibold text-sm uppercase tracking-wider mb-2">Gallery</p>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Campus Life & Moments</h2>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Explore the vibrant moments and memories captured at Pragya Academy
+            </p>
+          </div>
+
+          {/* Gallery Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+            {[gallery1, gallery2, gallery5, gallery7, gallery8, gallery9].map((img, i) => (
+              <div 
+                key={i} 
+                className="scroll-reveal group relative overflow-hidden rounded-xl shadow-md cursor-pointer"
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <img 
+                  src={img} 
+                  alt={`Gallery ${i + 1}`} 
+                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/20 transition-colors duration-300" />
+              </div>
+            ))}
+          </div>
+
+          {/* See More Button */}
+          <div className="text-center scroll-reveal">
+            <Link 
+              to="/gallery" 
+              className="inline-flex items-center gap-2 bg-orange text-white font-semibold px-8 py-4 rounded-xl hover:bg-orange-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              See More
+              <ArrowRight size={20} />
+            </Link>
           </div>
         </div>
       </section>
