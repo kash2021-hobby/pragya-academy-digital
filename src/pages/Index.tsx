@@ -7,6 +7,9 @@ import heroCampus from '@/assets/hero-campus.webp';
 import campus1 from '@/assets/gallery-1.webp';
 import campus2 from '@/assets/gallery-2.webp';
 import campus3 from '@/assets/gallery-10.webp';
+import topAchievers from '@/assets/top-achievers.webp';
+import results2025 from '@/assets/results-2025.webp';
+import results2024 from '@/assets/results-2024.webp';
 
 const heroImages = [heroCampus, campus1, campus3];
 
@@ -31,6 +34,7 @@ const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<'achievers' | '2025' | '2024'>('achievers');
 
   useScrollReveal();
 
@@ -86,11 +90,11 @@ const Index = () => {
         {heroImages.map((img, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <div className="absolute inset-0 animate-ken-burns">
+            <div className="absolute inset-0 w-full h-full animate-ken-burns">
               <img 
                 src={img} 
                 alt={`Pragya Academy ${index + 1}`}
@@ -100,11 +104,11 @@ const Index = () => {
           </div>
         ))}
         
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/45" />
+        {/* Dark Overlay - Full Coverage */}
+        <div className="absolute inset-0 w-full h-full bg-black/45 z-10" />
         
         {/* Centered Content */}
-        <div className="relative z-10 container-main px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-20 container-main px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-4xl mx-auto">
             <p className="text-orange font-semibold tracking-wider uppercase text-xs sm:text-sm mb-3 sm:mb-4 animate-fade-in">
               Welcome to Pragya Academy
@@ -123,7 +127,7 @@ const Index = () => {
         </div>
 
         {/* Slider Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        <div className="absolute bottom-24 md:bottom-28 left-1/2 -translate-x-1/2 z-20 flex gap-2">
           {heroImages.map((_, index) => (
             <button
               key={index}
@@ -138,23 +142,105 @@ const Index = () => {
       </section>
 
       {/* Service Cards with Alternating Colors */}
-      <section className="relative z-10 -mt-16 md:-mt-20 container-main px-4 sm:px-6 lg:px-8">
+      <section className="relative z-50 -mt-24 md:-mt-32 container-main px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((s, i) => (
             <div 
               key={i} 
-              className={`scroll-reveal rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-xl ${
-                i % 2 === 0 ? 'bg-navy/5' : 'bg-orange/5'
-              }`}
-              style={{ transitionDelay: `${i * 150}ms` }}
+              className="scroll-reveal rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-2xl bg-white"
+              style={{ 
+                transitionDelay: `${i * 150}ms`,
+                backgroundColor: i % 2 === 0 ? '#e8eef5' : '#fef3ed'
+              }}
             >
-              <div className="w-12 h-12 rounded-lg bg-orange/10 flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: '#fef3ed' }}>
                 <s.icon size={24} className="text-orange" />
               </div>
-              <h3 className="font-heading text-lg font-semibold text-navy mb-2">{s.title}</h3>
-              <p className="text-navy/80 text-sm">{s.desc}</p>
+              <h3 className="font-heading text-lg font-semibold mb-2" style={{ color: '#1e3a5f' }}>{s.title}</h3>
+              <p className="text-sm" style={{ color: '#4a5568' }}>{s.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Consistent Academic Excellence Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-main">
+          <div className="text-center mb-12 scroll-reveal">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4" style={{ color: '#1e3a5f' }}>
+              Consistent Academic Excellence
+            </h2>
+          </div>
+
+          {/* Tabbed Interface */}
+          <div className="scroll-reveal">
+            {/* Tab Headers */}
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <button
+                onClick={() => setActiveTab('achievers')}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                  activeTab === 'achievers'
+                    ? 'bg-navy text-white shadow-lg'
+                    : 'bg-white text-navy hover:bg-navy/10 shadow-md'
+                }`}
+              >
+                Our Top Achievers
+              </button>
+              <button
+                onClick={() => setActiveTab('2025')}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                  activeTab === '2025'
+                    ? 'bg-navy text-white shadow-lg'
+                    : 'bg-white text-navy hover:bg-navy/10 shadow-md'
+                }`}
+              >
+                2025 Results
+              </button>
+              <button
+                onClick={() => setActiveTab('2024')}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                  activeTab === '2024'
+                    ? 'bg-navy text-white shadow-lg'
+                    : 'bg-white text-navy hover:bg-navy/10 shadow-md'
+                }`}
+              >
+                2024 Results
+              </button>
+            </div>
+
+            {/* Tab Content */}
+            <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
+              {activeTab === 'achievers' && (
+                <div className="animate-fade-in">
+                  <img
+                    src={topAchievers}
+                    alt="Our Top Achievers"
+                    className="w-full h-auto object-contain rounded-lg"
+                  />
+                </div>
+              )}
+
+              {activeTab === '2025' && (
+                <div className="animate-fade-in">
+                  <img
+                    src={results2025}
+                    alt="2025 Results"
+                    className="w-full h-auto object-contain rounded-lg"
+                  />
+                </div>
+              )}
+
+              {activeTab === '2024' && (
+                <div className="animate-fade-in">
+                  <img
+                    src={results2024}
+                    alt="2024 Results"
+                    className="w-full h-auto object-contain rounded-lg"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
